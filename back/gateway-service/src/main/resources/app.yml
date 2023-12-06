@@ -6,10 +6,25 @@ spring:
           uri: http://localhost:8090/
           predicates:
             - Path=/livres/**
+          metadata:
+           cors:
+             allowedOrigins: 'http://localhost:4200/'
+             allowedMethods: '*'
+             allowedHeaders: '*'
+             maxAge: 3600            
         - id : r2
           uri: http://localhost:8091/
           predicates:
             - Path=/users/**
+          metadata:
+           cors:
+             allowedOrigins: 'http://localhost:4200/'
+             allowedMethods: '*'
+             allowedHeaders: '*'
+             maxAge: 3600
+            
+            
+            
   application:
     name: gateway-service
 server:
